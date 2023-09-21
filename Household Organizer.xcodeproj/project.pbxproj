@@ -13,6 +13,11 @@
 		BFC079DC2ABC2B9D009F2379 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC079DB2ABC2B9D009F2379 /* Preview Assets.xcassets */; };
 		BFC079DE2ABC2B9D009F2379 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079DD2ABC2B9D009F2379 /* Persistence.swift */; };
 		BFC079E12ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */; };
+		BFC079EE2ABC40C2009F2379 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079ED2ABC40C2009F2379 /* MainView.swift */; };
+		BFC079F02ABC40EC009F2379 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079EF2ABC40EC009F2379 /* LoginView.swift */; };
+		BFC079F22ABC421C009F2379 /* LoginImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F12ABC421C009F2379 /* LoginImageView.swift */; };
+		BFC079F42ABC42D7009F2379 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F32ABC42D7009F2379 /* Constant.swift */; };
+		BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F52ABC4543009F2379 /* LoginDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,12 @@
 		BFC079DB2ABC2B9D009F2379 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFC079DD2ABC2B9D009F2379 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BFC079E02ABC2B9D009F2379 /* Household_Organizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Household_Organizer.xcdatamodel; sourceTree = "<group>"; };
+		BFC079E72ABC306A009F2379 /* Household-Organizer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Household-Organizer-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BFC079ED2ABC40C2009F2379 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BFC079EF2ABC40EC009F2379 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BFC079F12ABC421C009F2379 /* LoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImageView.swift; sourceTree = "<group>"; };
+		BFC079F32ABC42D7009F2379 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BFC079F52ABC4543009F2379 /* LoginDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +66,13 @@
 		BFC079D32ABC2B9B009F2379 /* Household Organizer */ = {
 			isa = PBXGroup;
 			children = (
-				BFC079D42ABC2B9B009F2379 /* Household_OrganizerApp.swift */,
-				BFC079D62ABC2B9B009F2379 /* ContentView.swift */,
 				BFC079D82ABC2B9D009F2379 /* Assets.xcassets */,
-				BFC079DD2ABC2B9D009F2379 /* Persistence.swift */,
-				BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */,
+				BFC079E72ABC306A009F2379 /* Household-Organizer-Info.plist */,
+				BFC079EC2ABC4072009F2379 /* App */,
+				BFC079E82ABC3861009F2379 /* View */,
+				BFC079E92ABC386E009F2379 /* Model */,
+				BFC079EB2ABC38A0009F2379 /* Extension */,
+				BFC079EA2ABC3893009F2379 /* Utility */,
 				BFC079DA2ABC2B9D009F2379 /* Preview Content */,
 			);
 			path = "Household Organizer";
@@ -71,6 +84,50 @@
 				BFC079DB2ABC2B9D009F2379 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BFC079E82ABC3861009F2379 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFC079F12ABC421C009F2379 /* LoginImageView.swift */,
+				BFC079F52ABC4543009F2379 /* LoginDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFC079E92ABC386E009F2379 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFC079DD2ABC2B9D009F2379 /* Persistence.swift */,
+				BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFC079EA2ABC3893009F2379 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BFC079F32ABC42D7009F2379 /* Constant.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BFC079EB2ABC38A0009F2379 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BFC079EC2ABC4072009F2379 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BFC079D42ABC2B9B009F2379 /* Household_OrganizerApp.swift */,
+				BFC079D62ABC2B9B009F2379 /* ContentView.swift */,
+				BFC079ED2ABC40C2009F2379 /* MainView.swift */,
+				BFC079EF2ABC40EC009F2379 /* LoginView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC079F22ABC421C009F2379 /* LoginImageView.swift in Sources */,
+				BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */,
+				BFC079F02ABC40EC009F2379 /* LoginView.swift in Sources */,
 				BFC079DE2ABC2B9D009F2379 /* Persistence.swift in Sources */,
+				BFC079F42ABC42D7009F2379 /* Constant.swift in Sources */,
 				BFC079D72ABC2B9B009F2379 /* ContentView.swift in Sources */,
 				BFC079E12ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld in Sources */,
+				BFC079EE2ABC40C2009F2379 /* MainView.swift in Sources */,
 				BFC079D52ABC2B9B009F2379 /* Household_OrganizerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +340,11 @@
 				DEVELOPMENT_TEAM = NJ3Y4LJ7H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Household-Organizer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -290,6 +352,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Andrew.Household-Organizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,11 +372,11 @@
 				DEVELOPMENT_TEAM = NJ3Y4LJ7H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Household-Organizer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,6 +384,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Andrew.Household-Organizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
