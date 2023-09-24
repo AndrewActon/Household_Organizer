@@ -6,45 +6,53 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 struct LoginDetailsView: View {
     // MARK: - Properties
-    @Environment(\.managedObjectContext) private var viewContext
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @EnvironmentObject var auth: AuthenticationModel
+    @Binding var showCreateNewUser: Bool
     
     // MARK: - Body
     var body: some View {
         VStack {
             HStack {
-                Text("Email: ")
+                Text("Email")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
-                    .frame(width: 100)
+                    .frame(width: 80)
                     .padding()
-                TextField("Enter User Email", text: $email)
+                TextField("Enter User Email", text: $auth.email)
                     .padding()
-                    .background(.white)
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
             }
+            .padding(.trailing, 10)
             
             HStack {
-                Text("Password: ")
+                Text("Password")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
-                    .frame(width: 100)
+                    .frame(width: 80)
                     .padding()
-                TextField("Enter User Password", text: $password)
+                TextField("Enter User Password", text: $auth.password)
                     .padding()
-                    .background(.white)
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
             }
+            .padding(.trailing, 10)
+            .padding(.bottom, 10)
+            
             
             HStack {
                 Spacer()
-                
+                    
                 Button {
-                    //
+                    Task {
+                        await auth.signInWithEmailAndPassword()
+                    }
                 } label: {
                     Text("Login")
                 }
@@ -54,11 +62,11 @@ struct LoginDetailsView: View {
                     .foregroundColor(.white)
                     .background(myrtleGreen)
                     .cornerRadius(12)
-
+                
                 Spacer()
                 
                 Button {
-                    //
+                    showCreateNewUser = true
                 } label: {
                     Text("Signup")
                 }
@@ -70,7 +78,6 @@ struct LoginDetailsView: View {
                     .cornerRadius(12)
                 
                 Spacer()
-
             }
         }
     }
@@ -78,8 +85,9 @@ struct LoginDetailsView: View {
 
 struct LoginDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginDetailsView()
+        LoginDetailsView(showCreateNewUser: .constant(true))
             .previewLayout(.sizeThatFits)
             .background(backgroundGradient)
+            .environmentObject(AuthenticationModel())
     }
 }

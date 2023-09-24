@@ -6,10 +6,33 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct MainView: View {
+//    // MARK: - Fetching Data
+//    @Environment(\.managedObjectContext) private var viewContext
+//
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+//        animation: .default)
+//    private var items: FetchedResults<Item>
+    
+    // MARK: - Properties
+    @StateObject var auth = AuthenticationModel()
+    let handle = Auth.auth().addStateDidChangeListener { auth, user in
+        //
+    }
+    
+    // MARK: - Body
     var body: some View {
-        LoginView()
+        NavigationView {
+            if auth.authenticationState == .authenticated {
+                ContentView()
+            } else {
+                LoginView()
+            }
+        }
+        .environmentObject(auth)
     }
 }
 

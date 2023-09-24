@@ -9,25 +9,48 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    // MARK: - Fetching Data
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-    
     // MARK: - Properties
-
+    @EnvironmentObject var auth: AuthenticationModel
+    @State private var displayName: String = ""
+    
+    // MARK: - Functions
+    func checkDisplayName() {
+        guard let user = auth.user?.displayName else {
+            return
+        }
+        
+        displayName = user
+        return
+    }
+    
+    // MARK: - Body
     var body: some View {
-        NavigationView {
-            Text("Hello World")
+        ZStack {
+            if displayName.isEmpty {
+                BlankView()
+                
+                SetDisplayNameView(displayName: $displayName)
+            } else {
+                BlankView()
+                
+                Text(displayName)
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(width: 80)
+                    .padding()
+            }
+            
+        }
+        .background(backgroundGradient)
+        .onAppear {
+            checkDisplayName()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environmentObject(AuthenticationModel())
     }
 }
