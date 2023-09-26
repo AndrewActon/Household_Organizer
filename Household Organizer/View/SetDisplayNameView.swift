@@ -44,6 +44,7 @@ struct SetDisplayNameView: View {
             .background(isButtonDisabled ? Color.red : myrtleGreen)
             .cornerRadius(12)
         }
+        .padding()
     }
 }
 

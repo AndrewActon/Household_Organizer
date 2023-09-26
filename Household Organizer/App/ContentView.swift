@@ -11,7 +11,8 @@ import CoreData
 struct ContentView: View {
     // MARK: - Properties
     @EnvironmentObject var auth: AuthenticationModel
-    @State private var displayName: String = ""
+    @State private var displayName: String = "Andrew"
+    @State private var showCreateNewHouse: Bool = false
     
     // MARK: - Functions
     func checkDisplayName() {
@@ -25,28 +26,57 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack {
+        Group {
             if displayName.isEmpty {
-                BlankView()
-                
-                SetDisplayNameView(displayName: $displayName)
+                ZStack {
+                    BlankView()
+                    
+                    SetDisplayNameView(displayName: $displayName)
+                }
             } else {
-                BlankView()
-                
-                Text(displayName)
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-                    .frame(width: 80)
-                    .padding()
+                ZStack {
+                    VStack {
+                        SelectHouseholdView(createNewHouseShowing: $showCreateNewHouse)
+                        
+                        TabView {
+                            HomeView()
+                                .tabItem {
+                                    Label("Home", systemImage: "house.fill")
+                                }
+                                .toolbarBackground(night, for: .tabBar)
+                                .toolbarBackground(.visible, for: .tabBar)
+                            
+                            GroceryView()
+                                .tabItem {
+                                    Label("Groceries", systemImage: "basket.fill")
+                                }
+                                .toolbarBackground(night, for: .tabBar)
+                                .toolbarBackground(.visible, for: .tabBar)
+                        }
+                    }
+                    .background(myrtleGreen)
+                    .blur(radius: showCreateNewHouse ? 8.0 : 0, opaque: false)
+                    
+                    if showCreateNewHouse {
+                        BlankView()
+                            .onTapGesture {
+                                withAnimation {
+                                    showCreateNewHouse = false
+                                }
+                            }
+                        
+                        CreateNewHouseView()
+                    }
+                }
             }
-            
         }
         .background(backgroundGradient)
         .onAppear {
             checkDisplayName()
         }
-    }
+    }//: Body
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

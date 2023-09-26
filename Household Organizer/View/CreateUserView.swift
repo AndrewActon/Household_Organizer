@@ -60,7 +60,7 @@ struct CreateUserView: View {
             .cornerRadius(16)
             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.65), radius: 24)
             
-            HStack {
+            Group {
                 Button {
                     if auth.email.isEmpty {
                         createUserError = "Please enter an email."
