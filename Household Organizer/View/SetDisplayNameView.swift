@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct SetDisplayNameView: View {
     // MARK: - Properties
@@ -14,6 +15,24 @@ struct SetDisplayNameView: View {
     @Binding var displayName: String
     private var isButtonDisabled: Bool {
         displayNameTextField.isEmpty
+    }
+    
+    // MARK: - Functions
+    func createNewUser() {
+        guard let authUser = auth.user else { return }
+        let user = UserModel(id: authUser.uid, name: displayName, email: auth.email)
+        
+        AppDelegate.db.collection("Users").addDocument(data: [
+            "id" : user.id,
+            "name" : user.name,
+            "email" : user.email
+        ]) { error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
+            } else {
+                print("Document added")
+            }
+        }
     }
     
     // MARK: - Body
@@ -34,6 +53,7 @@ struct SetDisplayNameView: View {
                     await auth.updateUserName(name: displayName)
                 }
                 displayName = displayNameTextField
+                createNewUser()
             } label: {
                 Text("Set Display Name")
             }

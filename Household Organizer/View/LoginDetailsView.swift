@@ -66,7 +66,7 @@ struct LoginDetailsView: View {
                 Spacer()
                 
                 Button {
-                    showCreateNewUser = true
+                        showCreateNewUser = true
                 } label: {
                     Text("Signup")
                 }

@@ -32,6 +32,8 @@
 		BFDE46C82AC24F0300E8FBF4 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46C72AC24F0300E8FBF4 /* Household.swift */; };
 		BFDE46CA2AC2868F00E8FBF4 /* SelectHouseholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46C92AC2868F00E8FBF4 /* SelectHouseholdView.swift */; };
 		BFDE46CC2AC2895200E8FBF4 /* CreateNewHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseView.swift */; };
+		BFDE46D02AC3C28E00E8FBF4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CF2AC3C28E00E8FBF4 /* User.swift */; };
+		BFDE46D32AC3F02200E8FBF4 /* FindUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46D22AC3F02200E8FBF4 /* FindUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		BFDE46C72AC24F0300E8FBF4 /* Household.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
 		BFDE46C92AC2868F00E8FBF4 /* SelectHouseholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHouseholdView.swift; sourceTree = "<group>"; };
 		BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewHouseView.swift; sourceTree = "<group>"; };
+		BFDE46CF2AC3C28E00E8FBF4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFDE46D22AC3F02200E8FBF4 /* FindUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				BFC07A0B2AC0111C009F2379 /* GrocerySummaryView.swift */,
 				BFDE46C92AC2868F00E8FBF4 /* SelectHouseholdView.swift */,
 				BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseView.swift */,
+				BFDE46D22AC3F02200E8FBF4 /* FindUserView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			children = (
 				BFC07A042ABE9208009F2379 /* AuthenticationModel.swift */,
 				BFDE46C72AC24F0300E8FBF4 /* Household.swift */,
+				BFDE46CF2AC3C28E00E8FBF4 /* User.swift */,
 				BFC079DD2ABC2B9D009F2379 /* Persistence.swift */,
 				BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */,
 			);
@@ -256,6 +262,7 @@
 				BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */,
 				BFDE46CA2AC2868F00E8FBF4 /* SelectHouseholdView.swift in Sources */,
 				BFC079F02ABC40EC009F2379 /* LoginView.swift in Sources */,
+				BFDE46D02AC3C28E00E8FBF4 /* User.swift in Sources */,
 				BFC079DE2ABC2B9D009F2379 /* Persistence.swift in Sources */,
 				BFDE46C82AC24F0300E8FBF4 /* Household.swift in Sources */,
 				BFC079F42ABC42D7009F2379 /* Constant.swift in Sources */,
@@ -266,6 +273,7 @@
 				BFC07A052ABE9208009F2379 /* AuthenticationModel.swift in Sources */,
 				BFC079EE2ABC40C2009F2379 /* MainView.swift in Sources */,
 				BFC079D52ABC2B9B009F2379 /* Household_OrganizerApp.swift in Sources */,
+				BFDE46D32AC3F02200E8FBF4 /* FindUserView.swift in Sources */,
 				BFDE46CC2AC2895200E8FBF4 /* CreateNewHouseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -74,5 +74,4 @@ enum AuthenticationState {
             return false
         }
     }
-    
 }

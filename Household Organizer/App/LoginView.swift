@@ -40,7 +40,7 @@ struct LoginView: View {
                         }
                     }
                 
-                CreateUserView(isShowing: $showCreateNewUser)
+                    CreateUserView(isShowing: $showCreateNewUser)
             }
         }
     }

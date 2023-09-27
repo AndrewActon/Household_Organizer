@@ -21,6 +21,7 @@ struct ContentView: View {
         }
         
         displayName = user
+        
         return
     }
     
@@ -65,7 +66,7 @@ struct ContentView: View {
                                 }
                             }
                         
-                        CreateNewHouseView()
+                        CreateNewHouseView(isShowing: $showCreateNewHouse)
                     }
                 }
             }
