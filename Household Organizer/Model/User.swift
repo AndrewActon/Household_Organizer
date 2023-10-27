@@ -8,16 +8,7 @@
 import Foundation
 
 struct UserModel {
-    // MARK: - Properties
-    let id: String
-    let name: String?
-    let email: String
-    
-    // MARK: - Initializer
-    init(id: String, name: String?, email: String) {
-        self.id = id
-        self.name = name
-        self.email = email
-    }
-    
+    var id: String
+    var name: String?
+    var email: String
 }

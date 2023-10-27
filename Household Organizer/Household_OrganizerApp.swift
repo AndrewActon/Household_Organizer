@@ -38,7 +38,7 @@ struct Household_OrganizerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            LoginScreen()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

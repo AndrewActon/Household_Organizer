@@ -13,8 +13,10 @@ import FirebaseAuth
 struct CreateUserView: View {
     
     // MARK: - Properties
-    @EnvironmentObject var auth: AuthenticationModel
+    @EnvironmentObject var auth: LoginScreenViewModel
     @State private var createUserError: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     @Binding var isShowing: Bool
     
     // MARK: - Body
@@ -34,7 +36,7 @@ struct CreateUserView: View {
                         .foregroundColor(.white)
                         .frame(width: 80)
                         .padding()
-                    TextField("Enter User Email", text: $auth.email)
+                    TextField("Enter User Email", text: $email)
                         .padding()
                         .background(Color(UIColor.secondarySystemBackground))
                         .cornerRadius(12)
@@ -47,7 +49,7 @@ struct CreateUserView: View {
                         .foregroundColor(.white)
                         .frame(width: 80)
                         .padding()
-                    TextField("Enter User Password", text: $auth.password)
+                    TextField("Enter User Password", text: $password)
                         .padding()
                         .background(Color(UIColor.secondarySystemBackground))
                         .cornerRadius(12)
@@ -62,13 +64,13 @@ struct CreateUserView: View {
             
             Group {
                 Button {
-                    if auth.email.isEmpty {
+                    if email.isEmpty {
                         createUserError = "Please enter an email."
-                    } else if auth.password.isEmpty {
+                    } else if password.isEmpty {
                         createUserError = "Please enter a password."
                     } else {
                         Task {
-                            await auth.signUpWithEmailAndPassword()
+                            await auth.signUpWithEmailAndPassword(email: email, password: password)
                         }
                         withAnimation {
                             isShowing = false
@@ -87,13 +89,5 @@ struct CreateUserView: View {
             Spacer()
         }
         .padding()
-    }
-}
-
-struct CreateUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateUserView(isShowing: .constant(true))
-            .background(backgroundGradient)
-            .environmentObject(AuthenticationModel())
     }
 }

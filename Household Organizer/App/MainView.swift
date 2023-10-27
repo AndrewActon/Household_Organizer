@@ -1,43 +1,40 @@
+////
+////  MainView.swift
+////  Household Organizer
+////
+////  Created by Andrew Acton on 9/21/23.
+////
 //
-//  MainView.swift
-//  Household Organizer
+//import SwiftUI
+//import FirebaseAuth
 //
-//  Created by Andrew Acton on 9/21/23.
+//struct MainView: View {
+////    // MARK: - Fetching Data
+////    @Environment(\.managedObjectContext) private var viewContext
+////
+////    @FetchRequest(
+////        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+////        animation: .default)
+////    private var items: FetchedResults<Item>
+//    
+//    // MARK: - Properties
+//    @StateObject var auth = AuthenticationModel()
+//    
+//    // MARK: - Body
+//    var body: some View {
+//        Group {
+//            if auth.authenticationState == .authenticated {
+//                ContentView()
+//            } else {
+//                LoginView()
+//            }
+//        }
+//        .environmentObject(auth)
+//    }
+//}
 //
-
-import SwiftUI
-import FirebaseAuth
-
-struct MainView: View {
-//    // MARK: - Fetching Data
-//    @Environment(\.managedObjectContext) private var viewContext
-//
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
-    
-    // MARK: - Properties
-    @StateObject var auth = AuthenticationModel()
-    let handle = Auth.auth().addStateDidChangeListener { auth, user in
-        //
-    }
-    
-    // MARK: - Body
-    var body: some View {
-        NavigationView {
-            if auth.authenticationState == .authenticated {
-                ContentView()
-            } else {
-                LoginView()
-            }
-        }
-        .environmentObject(auth)
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

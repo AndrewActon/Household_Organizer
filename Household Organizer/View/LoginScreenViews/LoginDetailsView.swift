@@ -12,7 +12,9 @@ import FirebaseAuth
 
 struct LoginDetailsView: View {
     // MARK: - Properties
-    @EnvironmentObject var auth: AuthenticationModel
+    @EnvironmentObject var login: LoginScreenViewModel
+    @Binding var email: String
+    @Binding var password: String
     @Binding var showCreateNewUser: Bool
     
     // MARK: - Body
@@ -24,7 +26,7 @@ struct LoginDetailsView: View {
                     .foregroundColor(.white)
                     .frame(width: 80)
                     .padding()
-                TextField("Enter User Email", text: $auth.email)
+                TextField("Enter User Email", text: $email)
                     .padding()
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
@@ -37,7 +39,7 @@ struct LoginDetailsView: View {
                     .foregroundColor(.white)
                     .frame(width: 80)
                     .padding()
-                TextField("Enter User Password", text: $auth.password)
+                TextField("Enter User Password", text: $password)
                     .padding()
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
@@ -51,7 +53,7 @@ struct LoginDetailsView: View {
                     
                 Button {
                     Task {
-                        await auth.signInWithEmailAndPassword()
+                        await login.signInWithEmailAndPassword(email: email, password: password)
                     }
                 } label: {
                     Text("Login")
@@ -80,14 +82,5 @@ struct LoginDetailsView: View {
                 Spacer()
             }
         }
-    }
-}
-
-struct LoginDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginDetailsView(showCreateNewUser: .constant(true))
-            .previewLayout(.sizeThatFits)
-            .background(backgroundGradient)
-            .environmentObject(AuthenticationModel())
     }
 }

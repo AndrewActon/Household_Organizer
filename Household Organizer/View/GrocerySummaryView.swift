@@ -1,31 +1,31 @@
+////
+////  GrocerySummaryView.swift
+////  Household Organizer
+////
+////  Created by Andrew Acton on 9/24/23.
+////
 //
-//  GrocerySummaryView.swift
-//  Household Organizer
+//import SwiftUI
 //
-//  Created by Andrew Acton on 9/24/23.
+//struct GrocerySummaryView: View {
+//    var body: some View {
+//        VStack {
+//            ForEach(0..<10) { item in
+//                Text("Grocery Item")
+//                    .font(.system(size: 16, weight: .bold))
+//                    .foregroundColor(.white)
+//                    .padding()
+//            }
+//        }
+//        .background(midnightGreen)
+//        .cornerRadius(12)
+//        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.65), radius: 24)
+//    }
+//}
 //
-
-import SwiftUI
-
-struct GrocerySummaryView: View {
-    var body: some View {
-        VStack {
-            ForEach(0..<10) { item in
-                Text("Grocery Item")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-                    .padding()
-            }
-        }
-        .background(midnightGreen)
-        .cornerRadius(12)
-        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.65), radius: 24)
-    }
-}
-
-struct GrocerySummaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        GrocerySummaryView()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct GrocerySummaryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GrocerySummaryView()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

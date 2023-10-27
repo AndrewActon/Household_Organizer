@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Household: Identifiable {
-    let id: UUID
-    let occupants: [String]
-    let name: String
-    
+struct Household {
+    var id: String
+    var name: String
+    var occupants: [String]
 }
