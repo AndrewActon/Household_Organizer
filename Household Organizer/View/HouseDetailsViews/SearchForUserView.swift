@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchForUserView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: CreateNewHouseViewModel
+    @EnvironmentObject var viewModel: HouseDetailsViewModel
     @State private var email: String = ""
     @State private var foundUser: UserModel?
     private var searchButtonIsDisabled: Bool {

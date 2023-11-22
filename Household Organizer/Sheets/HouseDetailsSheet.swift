@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct CreateNewHouseSheet: View {
+struct HouseDetailsSheet: View {
     // MARK: - Properties
-    @ObservedObject var createNewHouseViewModel = CreateNewHouseViewModel()
+    @ObservedObject var createNewHouseViewModel = HouseDetailsViewModel()
     @Binding var isShowing: Bool
     private var createButtonIsDisabled: Bool {
         createNewHouseViewModel.name.isEmpty || createNewHouseViewModel.occupants.isEmpty
@@ -51,3 +51,6 @@ struct CreateNewHouseSheet: View {
     
 }
 
+#Preview {
+    HouseDetailsSheet(createNewHouseViewModel: HouseDetailsViewModel(), isShowing: .constant(true))
+}

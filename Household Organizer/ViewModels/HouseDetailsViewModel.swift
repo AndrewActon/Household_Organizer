@@ -8,8 +8,9 @@
 import Foundation
 import FirebaseFirestore
 
-@MainActor class CreateNewHouseViewModel: ObservableObject {
+@MainActor class HouseDetailsViewModel: ObservableObject {
     // MARK: - Properties
+    @Published var household: Household?
     @Published var name: String = ""
     @Published var occupants: [UserModel] = []
     

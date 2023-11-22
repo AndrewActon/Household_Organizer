@@ -18,8 +18,11 @@ struct CreateNewUtilitySheet: View {
             UtilityHeaderView()
             
             UtilityNameView()
+            
+            Spacer()
         }
         .environmentObject(viewModel)
+        .background(backgroundGradient)
     }
 }
 

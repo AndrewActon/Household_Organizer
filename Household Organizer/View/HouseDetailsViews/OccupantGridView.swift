@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OccupantGridView: View {
     
-    @EnvironmentObject var viewModel: CreateNewHouseViewModel
+    @EnvironmentObject var viewModel: HouseDetailsViewModel
     
     private let gridColumns = [
         GridItem(.flexible(), spacing: 12),
@@ -19,10 +19,6 @@ struct OccupantGridView: View {
     ]
     
     var body: some View {
-        VStack {
-            
-        }
-        
         LazyVGrid(columns: gridColumns, spacing: 12) {
             ForEach (viewModel.occupants, id: \.id) { occupant in
                 Button {

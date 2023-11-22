@@ -9,12 +9,12 @@ import SwiftUI
 
 struct HouseholdMenu: View {
     
-    @EnvironmentObject var viewModel: HomeScreenViewModel
+    @EnvironmentObject var viewModel: SummaryScreenViewModel
     
     var body: some View {
-        Group {
+        HStack {
             if viewModel.selectedHousehold == nil {
-                Text("Create A New Household")
+                Text("No Households Found")
             } else if viewModel.households == nil {
                 Text((viewModel.selectedHousehold?.name)!)
             } else {
@@ -44,5 +44,6 @@ struct HouseholdMenu_Previews: PreviewProvider {
         HouseholdMenu()
             .background(backgroundGradient)
             .environmentObject(HomeScreenViewModel())
+            .environmentObject(SummaryScreenViewModel())
     }
 }

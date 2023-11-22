@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct CreateHouseButton: View {
-    
+
+    @EnvironmentObject var summaryScreenViewModel: SummaryScreenViewModel
     @Binding var createNewHouseShowing: Bool
     
     var body: some View {
         Button {
+            summaryScreenViewModel.houseState = .create
             createNewHouseShowing = true
         } label: {
-            Image(systemName: "plus.circle")
+            Text("Create New Household")
+                .padding()
+                .font(.headline)
                 .foregroundColor(.white)
-        }
+                .background(myrtleGreen)
+                .cornerRadius(12)        }
     }
 }
 
-struct CreateHouseButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateHouseButton(createNewHouseShowing: .constant(true))
-            .background(cambridgeGreen)
-            .previewLayout(.sizeThatFits)
-    }
-}
+

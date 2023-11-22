@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HouseDetailsView: View {
-    @EnvironmentObject var viewModel: CreateNewHouseViewModel
+    @EnvironmentObject var viewModel: HouseDetailsViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
