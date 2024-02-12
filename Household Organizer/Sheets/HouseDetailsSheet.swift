@@ -9,10 +9,17 @@ import SwiftUI
 
 struct HouseDetailsSheet: View {
     // MARK: - Properties
-    @ObservedObject var createNewHouseViewModel = HouseDetailsViewModel()
+    @EnvironmentObject var loginScreenViewModel: LoginScreenViewModel
+    @StateObject var houseDetailsViewModel = HouseDetailsViewModel()
     @Binding var isShowing: Bool
+    let houseState: HouseState
     private var createButtonIsDisabled: Bool {
-        createNewHouseViewModel.name.isEmpty || createNewHouseViewModel.occupants.isEmpty
+        houseDetailsViewModel.name.isEmpty || houseDetailsViewModel.occupants.isEmpty
+    }
+    
+    init(isShowing: Binding<Bool>, houseState: HouseState) {
+        self._isShowing = isShowing
+        self.houseState = houseState
     }
     
     // MARK: - Body
@@ -29,28 +36,27 @@ struct HouseDetailsSheet: View {
             
             Spacer()
             
-            Button {
-                createNewHouseViewModel.createNewHouse(name: createNewHouseViewModel.name, occupants: createNewHouseViewModel.occupants)
-
-                isShowing = false
-            } label: {
-                Text("Create")
-            }
-            .disabled(createButtonIsDisabled)
-            .font(.system(size: 16, weight: .bold))
-            .padding()
-            .foregroundColor(.white)
-            .background(createButtonIsDisabled ? .red : myrtleGreen)
-            .clipShape(Capsule())
+            HouseDetailsFooterButtons(isShowing: $isShowing)
             
         }
         .padding()
         .background(backgroundGradient)
-        .environmentObject(createNewHouseViewModel)
+        .environmentObject(houseDetailsViewModel)
+        
+        .onAppear {
+            //Set house state for view model
+            houseDetailsViewModel.houseState = houseState
+            //Unwrap selected household
+            guard let house = loginScreenViewModel.selectedHousehold else { return }
+            //Call view setup
+            Task {
+                await houseDetailsViewModel.setupView(house: house)                
+            }
+        }
+        
+        
     }
     
 }
 
-#Preview {
-    HouseDetailsSheet(createNewHouseViewModel: HouseDetailsViewModel(), isShowing: .constant(true))
-}
+

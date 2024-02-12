@@ -23,12 +23,6 @@ struct UtilityNameView: View {
                 .background(Color(UIColor.secondarySystemBackground))
                 .cornerRadius(12)
         }
-    }
-}
-
-struct UtilityNameView_Previews: PreviewProvider {
-    static var previews: some View {
-        UtilityNameView()
-            .background(backgroundGradient)
+        .padding()
     }
 }

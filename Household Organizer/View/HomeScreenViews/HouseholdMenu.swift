@@ -8,42 +8,62 @@
 import SwiftUI
 
 struct HouseholdMenu: View {
-    
-    @EnvironmentObject var viewModel: SummaryScreenViewModel
+    @EnvironmentObject var loginScreenViewModel: LoginScreenViewModel
+    @EnvironmentObject var homeScreenViewModel: HomeScreenViewModel
+    @State private var isRotated: Bool = false
     
     var body: some View {
         HStack {
-            if viewModel.selectedHousehold == nil {
+            if loginScreenViewModel.selectedHousehold == nil {
+                Spacer()
+                
                 Text("No Households Found")
-            } else if viewModel.households == nil {
-                Text((viewModel.selectedHousehold?.name)!)
+                    .padding()
+                
+                Spacer()
+            }  else if homeScreenViewModel.households == nil {
+                Spacer()
+                
+                Text((loginScreenViewModel.selectedHousehold?.name)!)
+                    .padding()
+                
+                Spacer()
             } else {
                 HStack {
-                    Menu((viewModel.selectedHousehold?.name)!) {
-                        ForEach(viewModel.households!, id: \.id) { house in
+                    Menu {
+                        ForEach(homeScreenViewModel.households!, id: \.id) { house in
                             Button {
-                                viewModel.selectedHousehold = house
+                                loginScreenViewModel.selectedHousehold = house
+                                withAnimation(.easeOut) {
+                                    isRotated.toggle()
+                                }
                             } label: {
                                 Text(house.name)
                             }
                         }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            
+                            Text(loginScreenViewModel.selectedHousehold?.name ?? "")
+                            
+                            Image(systemName: "chevron.down")
+                                .rotationEffect(.degrees(isRotated ? 180.00 : 0.00))
+                            
+                            Spacer()
+                        }
                     }
-                    
-                    Image(systemName: "chevron.down")
-                    
+                    .onTapGesture {
+                        withAnimation {
+                            isRotated.toggle()
+                        }
+                    }
+                    .padding()
                 }
             }
         }
-        .font(.system(size: 16, weight: .bold))
+        .font(.system(size: 20, weight: .bold))
         .foregroundColor(.white)
     }
 }
 
-struct HouseholdMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        HouseholdMenu()
-            .background(backgroundGradient)
-            .environmentObject(HomeScreenViewModel())
-            .environmentObject(SummaryScreenViewModel())
-    }
-}

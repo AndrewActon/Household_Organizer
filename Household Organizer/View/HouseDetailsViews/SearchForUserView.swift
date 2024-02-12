@@ -12,6 +12,7 @@ struct SearchForUserView: View {
     @EnvironmentObject var viewModel: HouseDetailsViewModel
     @State private var email: String = ""
     @State private var foundUser: UserModel?
+    @State private var isAlertShowing: Bool = false
     private var searchButtonIsDisabled: Bool {
         email.isEmpty
     }
@@ -28,6 +29,9 @@ struct SearchForUserView: View {
                 Button {
                     Task {
                         await foundUser = viewModel.searchForUserByEmail(email: email)
+                        if foundUser == nil {
+                            isAlertShowing = true
+                        }
                     }
                 } label: {
                     Text("Search")
@@ -40,6 +44,11 @@ struct SearchForUserView: View {
                 .clipShape(Capsule())
             }
             .padding()
+            .alert("No user found with that email.", isPresented: $isAlertShowing) {
+                Button("Dismiss", role: .cancel) {
+                    isAlertShowing = false
+                }
+            }
             
             if foundUser != nil {
                 HStack {
@@ -78,9 +87,3 @@ struct SearchForUserView: View {
     }
 }
 
-struct SearchForUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchForUserView()
-            .background(backgroundGradient)
-    }
-}

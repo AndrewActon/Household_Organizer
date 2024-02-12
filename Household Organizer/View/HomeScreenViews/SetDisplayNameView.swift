@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SetDisplayNameView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: HomeScreenViewModel
+    @EnvironmentObject var loginScreenViewModel: LoginScreenViewModel
     @State var displayNameTextField: String = ""
     private var isButtonDisabled: Bool {
         displayNameTextField.isEmpty
@@ -33,7 +33,7 @@ struct SetDisplayNameView: View {
             
             Button {
                 Task {
-                    await viewModel.updateUserName(name: displayNameTextField)
+                    await loginScreenViewModel.updateUserDisplayName(name: displayNameTextField)
                 }
             } label: {
                 Text("Set Display Name")

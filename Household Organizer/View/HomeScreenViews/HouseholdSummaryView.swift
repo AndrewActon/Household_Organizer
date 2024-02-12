@@ -8,49 +8,54 @@
 import SwiftUI
 
 struct HouseholdSummaryView: View {
+    // MARK: - Properties
     @EnvironmentObject var homeScreenViewModel: HomeScreenViewModel
-    @EnvironmentObject var summaryScreenViewModel: SummaryScreenViewModel
     @Binding var houseDetailsShowing: Bool
     
     private let gridColumns = [
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12),
-//        GridItem(.flexible(), spacing: 12)
     ]
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             if homeScreenViewModel.households == nil {
                 BlankView()
             } else {
-                ForEach(homeScreenViewModel.households! , id: \.id) { house in
+                ForEach(homeScreenViewModel.households!, id: \.id) { house in
                     VStack {
+                        //Header Section
                         HStack {
+                            //House Name
                             Text(house.name)
-                                .font(.largeTitle)
+                                .font(.system(size: 20, weight: .bold))
                                 .foregroundStyle(.white)
                             
                             Spacer()
                             
+                            //Edit Button
                             Button {
-                                summaryScreenViewModel.houseState = .edit
-                                homeScreenViewModel.selectedHousehold = house
+//                                homeScreenViewModel.setSelectedHousehold(household: house)
+                                homeScreenViewModel.houseState = .edit
                                 houseDetailsShowing = true
                             } label: {
-                                Text("edit")
+                                Text("Edit")
                             }
+                            .font(.system(size: 12, weight: .bold))
                             .padding()
-                            .font(.headline)
-                            .foregroundStyle(.white)
                             .background(.red)
+                            .foregroundColor(.white)
                             .clipShape(Capsule())
                         }
-                        .padding()
                         
                         Divider()
                             .overlay(Color.white)
                         
+                        //Occupant Section
+                        
+                        //Title
                         HStack {
                             Spacer()
                             
@@ -61,25 +66,23 @@ struct HouseholdSummaryView: View {
                             Spacer()
                         }
                         
-                        LazyVGrid(columns: gridColumns, content: {
-                            ForEach(house.occupants, id: \.id) { occupant in
-                                Text(occupant.name ?? occupant.email)
-                                    .font(.system(size: 12, weight: .bold))
-                                    .foregroundStyle(.white)
-                            }
-                        })
-
+                        //Occupant Name Grid
+                        SummaryOccupantGridView(household: house)
+                        
+                        Divider()
+                            .overlay(Color.white)
                     }
-                    .background(darkGreen)
-                    .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                    .shadow(radius: 12.0)
+                    
                     
                 }
-                
+                .padding()
+                .background(darkGreen)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .shadow(radius: 6)
                 
             }
-            
         }
         .padding()
+        
     }
 }

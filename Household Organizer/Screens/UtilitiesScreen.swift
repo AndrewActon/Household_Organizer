@@ -9,29 +9,60 @@ import SwiftUI
 
 struct UtilitiesScreen: View {
     // MARK: - Properties
-    @ObservedObject var viewModel = UtilitiesScreenViewModel()
+    @EnvironmentObject var loginScreenViewModel: LoginScreenViewModel
+    @EnvironmentObject var homeScreenViewModel: HomeScreenViewModel
+    @StateObject var utilitiesScreenViewModel = UtilitiesScreenViewModel()
     @State var createNewUtilityShowing: Bool = false
     
     // MARK: - Body
     var body: some View {
-        NavigationStack {
             VStack {
-                CreateUtilityButton(createNewUtilityShowing: $createNewUtilityShowing)
+                HStack {
+                    Spacer()
+                    
+                    Text(loginScreenViewModel.selectedHousehold?.name ?? "No Households Found")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                }
+                .padding()
+                .background(cambridgeGreen)
+                
+                HStack {
+                    Spacer()
+                    
+                    CreateUtilityButton(createNewUtilityShowing: $createNewUtilityShowing)
+                        .padding()
+                    
+                    Spacer()
+                }
+                
+                if utilitiesScreenViewModel.utilities == nil || utilitiesScreenViewModel.utilities!.isEmpty {
+                    Spacer()
+                } else {
+                    ForEach(utilitiesScreenViewModel.utilities!) { utility in
+                        UtilitiesSummaryView(utilitiesSheetShowing: $createNewUtilityShowing, utility: utility)
+                    }
+                }
                 
                 
             }
             .background(backgroundGradient)
-            .environmentObject(viewModel)
-            
-        }
-        .sheet(isPresented: $createNewUtilityShowing) {
-            
-        }
+            .environmentObject(utilitiesScreenViewModel)
+            .task {
+                guard let house = loginScreenViewModel.selectedHousehold,
+                      let utilityIDs = await utilitiesScreenViewModel.setupView(household: house)
+                else { return }
+                
+                utilitiesScreenViewModel.utilities = await utilitiesScreenViewModel.findUtilties(id: utilityIDs)
+            }
+        
+            .sheet(isPresented: $createNewUtilityShowing) {
+                UtilityDetailsSheet(isShowing: $createNewUtilityShowing, utilityState: utilitiesScreenViewModel.utilityState)
+            }
+            .environmentObject(utilitiesScreenViewModel)
+
     }
 }
 
-struct UtilitiesScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        UtilitiesScreen()
-    }
-}

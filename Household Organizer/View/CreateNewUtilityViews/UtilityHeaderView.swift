@@ -21,10 +21,3 @@ struct UtilityHeaderView: View {
         }
     }
 }
-
-struct UtilityHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        UtilityHeaderView()
-            .background(backgroundGradient)
-    }
-}

@@ -10,14 +10,40 @@ import SwiftUI
 struct LoginScreen: View {
     
     @ObservedObject var loginViewModel = LoginScreenViewModel()
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @ObservedObject var homeScreenViewModel = HomeScreenViewModel()
     @State private var showCreateNewUser: Bool = false
     
     var body: some View {
-        Group {
+        NavigationView {
             if loginViewModel.authenticationState == .authenticated {
-                HomeScreen()
+                VStack {
+                    TabView {
+                        HomeScreen()
+                            .tabItem {
+                                Label("Home", systemImage: "house.fill")
+                            }
+                            .toolbarBackground(night, for: .tabBar)
+                            .toolbarBackground(.visible, for: .tabBar)
+                        UtilitiesScreen()
+                            .tabItem {
+                                Label("Utilities", systemImage: "bolt.fill")
+                            }
+                            .toolbarBackground(night, for: .tabBar)
+                            .toolbarBackground(.visible, for: .tabBar)
+                        SettingsScreen()
+                            .tabItem {
+                                Label("Settings", systemImage: "gear")
+                            }
+                            .toolbarBackground(night, for: .tabBar)
+                            .toolbarBackground(.visible, for: .tabBar)
+                    }
+                }
+                
+                .task {
+                    guard let household = await homeScreenViewModel.setupView() else { return }
+                    
+                    loginViewModel.selectedHousehold = household
+                }
             } else {
                 ZStack {
                     VStack {
@@ -25,7 +51,7 @@ struct LoginScreen: View {
                         
                         Spacer()
                         
-                        LoginDetailsView(email: $email, password: $password, showCreateNewUser: $showCreateNewUser)
+                        LoginDetailsView(email: $loginViewModel.email, password: $loginViewModel.password, showCreateNewUser: $showCreateNewUser)
                         
                         Spacer()
                     }
@@ -48,12 +74,8 @@ struct LoginScreen: View {
             }
         }
         .environmentObject(loginViewModel)
+        .environmentObject(homeScreenViewModel)
 
     }
 }
 
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
-    }
-}

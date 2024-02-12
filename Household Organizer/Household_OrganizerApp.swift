@@ -18,14 +18,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        Auth.auth().useEmulator(withHost:"127.0.0.1", port:9099)
         
         // MARK: - Firestore Emulator
-        let settings = Firestore.firestore().settings
-        settings.host = "127.0.0.1:8080";
-        settings.isPersistenceEnabled = false;
-        settings.isSSLEnabled = false;
-        Firestore.firestore().settings = settings
+//        Auth.auth().useEmulator(withHost:"127.0.0.1", port:9099)
+//        let settings = Firestore.firestore().settings
+//        settings.host = "127.0.0.1:8080";
+//        settings.isPersistenceEnabled = false;
+//        settings.isSSLEnabled = false;
+//        Firestore.firestore().settings = settings
         
         return true
     }
@@ -34,12 +34,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Household_OrganizerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             LoginScreen()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

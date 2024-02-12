@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+@MainActor class EditHouseSheetViewModel: ObservableObject {
+    @Published var household: Household?
+    
+    
+}

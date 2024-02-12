@@ -10,10 +10,12 @@ import SwiftUI
 struct CreateUtilityButton: View {
     
     @Binding var createNewUtilityShowing: Bool
+    @EnvironmentObject var utilitiesScreenViewModel: UtilitiesScreenViewModel
     
     var body: some View {
         Button {
             createNewUtilityShowing = true
+            utilitiesScreenViewModel.utilityState = .create
         } label: {
             Text("Create New Utility Bill")
         }
@@ -25,8 +27,3 @@ struct CreateUtilityButton: View {
     }
 }
 
-struct CreateUtilityButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateUtilityButton(createNewUtilityShowing: .constant(false))
-    }
-}

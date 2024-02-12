@@ -5,53 +5,45 @@
 //  Created by Andrew Acton on 10/26/23.
 //
 
-import Foundation
+import SwiftUI
 import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+enum HouseState {
+    case create
+    case edit
+}
 
 @MainActor class HouseDetailsViewModel: ObservableObject {
     // MARK: - Properties
-    @Published var household: Household?
+    @Published var id: String = UUID().uuidString
     @Published var name: String = ""
     @Published var occupants: [UserModel] = []
+    @Published var houseState: HouseState?
     
     // MARK: - Methods
-    func createNewHouse(name: String, occupants: [UserModel]) {
-        var userEmails: [String] = []
-        for occupant in occupants {
-            userEmails.append(occupant.email)
-        }
-
-        var ref: DocumentReference? = nil
-        ref = AppDelegate.db.collection("Households").addDocument(data: [
-            "id" : UUID().uuidString,
-            "name" : name,
-            "occupants" : userEmails
-        ]) { error in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
+    func setupView(house: Household) async {
+        if houseState == .edit {
+            name = house.name
+            for occupant in house.occupants {
+                guard let user = await UserManager.shared.findUserByID(userID: occupant) else { return }
+                occupants.self.append(user)
             }
         }
     }
     
-    func searchForUserByEmail(email: String) async -> UserModel? {
-        let docRef = AppDelegate.db.collection("Users").document(email.lowercased())
-        var user: UserModel?
+    func createNewHouse() -> Household {
+        HouseholdManager.shared.createNewHouse(id: id.self, name: name.self, occupants: occupants.self, utilities: nil)
         
-        do {
-            let document = try await docRef.getDocument()
-            
-            user = UserModel(
-                id: document["id"] as? String ?? "",
-                name: document["name"] as? String ?? "",
-                email: document["email"] as? String ?? "")
-            
-            return user
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
-            return user
-        }
+        let userIDs = occupants.map { $0.id }
+        
+        let house = Household(id: id, name: name, occupants: userIDs, utilities: nil)
+        
+       return house
+    }
+    
+    func searchForUserByEmail(email: String) async -> UserModel? {
+        return await UserManager.shared.findUserByEmail(email: email)
     }
     
     func removeUserFromHousehold(user: UserModel) {
@@ -60,4 +52,26 @@ import FirebaseFirestore
         }
     }
     
+    func updateHousehold(household: Household?) -> Household? {
+        guard let household = household else { return nil }
+        
+        let occupantIDs = occupants.map { $0.id }
+        
+        let updatedHousehold = Household(id: household.id, name: name, occupants: occupantIDs, utilities: household.utilities)
+        
+        HouseholdManager.shared.updateHousehold(household: updatedHousehold)
+        
+        return updatedHousehold
+    }
+    
+    func deleteHousehold(household: Household?) {
+        guard let household = household else { return }
+        
+        HouseholdManager.shared.deleteHousehold(household: household)
+    }
+
 }
+
+
+
+

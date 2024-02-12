@@ -10,76 +10,52 @@ import SwiftUI
 struct HomeScreen: View {
     // MARK: - Properties
     @EnvironmentObject var loginViewModel: LoginScreenViewModel
-    @ObservedObject var viewModel = HomeScreenViewModel()
-    @State private var createNewHouseShowing: Bool = false
+    @EnvironmentObject var homeScreenViewModel: HomeScreenViewModel
+    @State private var houseDetailsShowing: Bool = false
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
-            Group {
-                if viewModel.user.name == "" {
-                    ZStack {
-                        BlankView()
-                        
-                        SetDisplayNameView()
-                    }
-                    .background(backgroundGradient)
-                } else {
-                    TabView {
-                        SummaryScreen()
-                            .tabItem {
-                                Label("Home", systemImage: "house.fill")
-                            }
-                            .toolbarBackground(night, for: .tabBar)
-                            .toolbarBackground(.visible, for: .tabBar)
-                        UtilitiesScreen()
-                            .tabItem {
-                                Label("Utilities", systemImage: "bolt.fill")
-                            }
-                            .toolbarBackground(night, for: .tabBar)
-                            .toolbarBackground(.visible, for: .tabBar)
-                    }
-                }
+            VStack {
+                //Header
+                HouseholdMenu()
+                    .background(cambridgeGreen)
+                
+                //Button
+                CreateHouseButton(createNewHouseShowing: $houseDetailsShowing)
+                    .padding()
+                
+                //Summary
+                HouseholdSummaryView(houseDetailsShowing: $houseDetailsShowing)
+                
+//                //Occupant List
+//                if loginViewModel.selectedHousehold != nil {
+//                    OccupantListView(occupantIDs: loginViewModel.selectedHousehold!.occupants)
+//                }
+                
+                Spacer()
+                
+                EditHouseholdButton(houseDetailsShowing: $houseDetailsShowing)
+                    .padding()
             }
-            .toolbarBackground(cambridgeGreen, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarRole(.editor)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                        HouseholdMenu()
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    CreateHouseButton(createNewHouseShowing: $createNewHouseShowing)
-                }
-                
-                
-            }
+            .environmentObject(homeScreenViewModel)
+            .background(backgroundGradient)
             
-            .sheet(isPresented: $createNewHouseShowing) {
-                CreateNewHouseSheet(isShowing: $createNewHouseShowing)
+            .sheet(isPresented: $houseDetailsShowing) {
+                HouseDetailsSheet(isShowing: $houseDetailsShowing, houseState: homeScreenViewModel.houseState!)
                     .onDisappear {
                         Task {
-                            viewModel.households = await viewModel.findUserHouseholds(user: viewModel.user)
+                            let user = UserManager.shared.user
+                            
+                            guard let households = await homeScreenViewModel.findUserHouseholds(user: user) else { return }
+                            
+                            homeScreenViewModel.households = households
+                            
+                            loginViewModel.selectedHousehold = households[0]
                         }
-                        createNewHouseShowing = false
+                        houseDetailsShowing = false
                     }
+                    .environmentObject(homeScreenViewModel)
             }
-            
-            .onAppear {
-                viewModel.user = loginViewModel.user
-                Task {
-                    viewModel.households = await viewModel.findUserHouseholds(user: viewModel.user)
-                }
-            }
-            .environmentObject(viewModel)
-        }
 
-    }
-}
-
-struct HomeScreenPreview: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
     }
 }

@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Household {
+struct Household: Codable {
     var id: String
     var name: String
     var occupants: [String]
+    var utilities: [String]?
 }
+

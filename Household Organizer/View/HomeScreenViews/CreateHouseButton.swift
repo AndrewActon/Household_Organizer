@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CreateHouseButton: View {
 
-    @EnvironmentObject var summaryScreenViewModel: SummaryScreenViewModel
+    @EnvironmentObject var homeScreenViewModel: HomeScreenViewModel
     @Binding var createNewHouseShowing: Bool
     
     var body: some View {
         Button {
-            summaryScreenViewModel.houseState = .create
+            homeScreenViewModel.houseState = .create
             createNewHouseShowing = true
         } label: {
             Text("Create New Household")
@@ -22,7 +22,7 @@ struct CreateHouseButton: View {
                 .font(.headline)
                 .foregroundColor(.white)
                 .background(myrtleGreen)
-                .cornerRadius(12)        }
+                .clipShape(Capsule())        }
     }
 }
 

@@ -17,6 +17,7 @@ struct CreateUserView: View {
     @State private var createUserError: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var displayName: String = ""
     @Binding var isShowing: Bool
     
     // MARK: - Body
@@ -44,12 +45,25 @@ struct CreateUserView: View {
                 .padding(.trailing, 10)
                 
                 HStack {
+                    Text("Display Name")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(width: 80)
+                        .padding()
+                    TextField("Enter the name you want others to see", text: $displayName)
+                        .padding()
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(12)
+                }
+                .padding(.trailing, 10)
+                
+                HStack {
                     Text("Password")
                         .font(.system(size: 16, weight: .bold))
                         .foregroundColor(.white)
                         .frame(width: 80)
                         .padding()
-                    TextField("Enter User Password", text: $password)
+                    SecureField("Enter User Password", text: $password)
                         .padding()
                         .background(Color(UIColor.secondarySystemBackground))
                         .cornerRadius(12)
@@ -70,7 +84,7 @@ struct CreateUserView: View {
                         createUserError = "Please enter a password."
                     } else {
                         Task {
-                            await auth.signUpWithEmailAndPassword(email: email, password: password)
+                            await auth.signUpWithEmailAndPassword(email: email, password: password, displayName: displayName)
                         }
                         withAnimation {
                             isShowing = false

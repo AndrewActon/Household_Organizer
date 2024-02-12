@@ -7,15 +7,18 @@
 
 import Foundation
 
-struct Utility {
+struct Utility: Codable, Identifiable {
+    var id: String
     var name: String
-    var payer: Payer
     var amount: Double
     var instructions: String
     var dueDate: Date
+    var payStatus: [PayStatus]?
 }
 
-struct Payer {
+struct PayStatus: Codable, Identifiable {
+    var id: String
     var name: String
-    var payStatus: Bool
+    var amount: Double
+    var paid: Bool
 }

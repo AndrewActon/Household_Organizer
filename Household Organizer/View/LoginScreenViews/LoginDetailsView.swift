@@ -16,6 +16,7 @@ struct LoginDetailsView: View {
     @Binding var email: String
     @Binding var password: String
     @Binding var showCreateNewUser: Bool
+    @State var signInError: Bool = false
     
     // MARK: - Body
     var body: some View {
@@ -32,14 +33,14 @@ struct LoginDetailsView: View {
                     .cornerRadius(12)
             }
             .padding(.trailing, 10)
-            
+             
             HStack {
                 Text("Password")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 80)
                     .padding()
-                TextField("Enter User Password", text: $password)
+                SecureField("Enter User Password", text: $password)
                     .padding()
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
@@ -47,13 +48,21 @@ struct LoginDetailsView: View {
             .padding(.trailing, 10)
             .padding(.bottom, 10)
             
+            Text(signInError ? "Incorrect email or password" : "")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundStyle(.red)
+                .padding()
             
             HStack {
                 Spacer()
                     
                 Button {
                     Task {
-                        await login.signInWithEmailAndPassword(email: email, password: password)
+                        let error = await login.signInWithEmailAndPassword(email: email, password: password)
+                        
+                        if !error {
+                            signInError = true
+                        }
                     }
                 } label: {
                     Text("Login")
@@ -70,7 +79,7 @@ struct LoginDetailsView: View {
                 Button {
                         showCreateNewUser = true
                 } label: {
-                    Text("Signup")
+                    Text("Sign Up")
                 }
                     .frame(width: 80)
                     .padding()

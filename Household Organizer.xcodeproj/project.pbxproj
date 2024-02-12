@@ -11,10 +11,9 @@
 		BF1181192AE1D838000D6629 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181182AE1D838000D6629 /* HomeScreen.swift */; };
 		BF11811B2AE1D9D7000D6629 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11811A2AE1D9D7000D6629 /* LoginScreenViewModel.swift */; };
 		BF1181202AE251C3000D6629 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11811F2AE251C3000D6629 /* HomeScreenViewModel.swift */; };
-		BF1181242AE31E6A000D6629 /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181232AE31E6A000D6629 /* SummaryScreen.swift */; };
 		BF1181262AE31E9E000D6629 /* UtilitiesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181252AE31E9E000D6629 /* UtilitiesScreen.swift */; };
 		BF1181282AEB330B000D6629 /* OccupantGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181272AEB330B000D6629 /* OccupantGridView.swift */; };
-		BF11812A2AEB3839000D6629 /* CreateNewHouseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181292AEB3839000D6629 /* CreateNewHouseViewModel.swift */; };
+		BF11812A2AEB3839000D6629 /* HouseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181292AEB3839000D6629 /* HouseDetailsViewModel.swift */; };
 		BF11812D2AEB7DF9000D6629 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11812C2AEB7DF9000D6629 /* HeaderView.swift */; };
 		BF11812F2AEB7ED6000D6629 /* HouseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11812E2AEB7ED6000D6629 /* HouseDetailsView.swift */; };
 		BF1181312AEB82C7000D6629 /* SearchForUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181302AEB82C7000D6629 /* SearchForUserView.swift */; };
@@ -23,16 +22,53 @@
 		BF1181372AEC5D94000D6629 /* UtilitiesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181362AEC5D94000D6629 /* UtilitiesScreenViewModel.swift */; };
 		BF11813A2AEC603E000D6629 /* CreateHouseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181392AEC603E000D6629 /* CreateHouseButton.swift */; };
 		BF11813C2AEC617F000D6629 /* CreateUtilityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11813B2AEC617F000D6629 /* CreateUtilityButton.swift */; };
-		BF11813F2AEC6339000D6629 /* CreateNewUtilitySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11813E2AEC6339000D6629 /* CreateNewUtilitySheet.swift */; };
+		BF11813F2AEC6339000D6629 /* UtilityDetailsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11813E2AEC6339000D6629 /* UtilityDetailsSheet.swift */; };
 		BF1181422AEC63DE000D6629 /* UtilityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181412AEC63DE000D6629 /* UtilityHeaderView.swift */; };
-		BF1181442AEC642F000D6629 /* UtilityNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181432AEC642F000D6629 /* UtilityNameView.swift */; };
-		BF1181482AEC64D6000D6629 /* CreateNewUtilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181472AEC64D6000D6629 /* CreateNewUtilityViewModel.swift */; };
+		BF1181482AEC64D6000D6629 /* UtilityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1181472AEC64D6000D6629 /* UtilityDetailsViewModel.swift */; };
+		BF3714442B17E1BC0018E7B3 /* OccupantsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3714432B17E1BC0018E7B3 /* OccupantsList.swift */; };
+		BF3714462B18768B0018E7B3 /* UtilityInstructionsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3714452B18768B0018E7B3 /* UtilityInstructionsField.swift */; };
+		BF3714482B187C800018E7B3 /* CreateNewUtilityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3714472B187C800018E7B3 /* CreateNewUtilityButton.swift */; };
+		BF37144E2B339D380018E7B3 /* UtilityInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF37144D2B339D380018E7B3 /* UtilityInfoView.swift */; };
+		BF4F25422B3535E8004501B2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25412B3535E8004501B2 /* FirebaseAnalytics */; };
+		BF4F25442B3535E8004501B2 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25432B3535E8004501B2 /* FirebaseAnalyticsOnDeviceConversion */; };
+		BF4F25462B3535E8004501B2 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25452B3535E8004501B2 /* FirebaseAnalyticsSwift */; };
+		BF4F25482B3535E8004501B2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25472B3535E8004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		BF4F254A2B3535E8004501B2 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25492B3535E8004501B2 /* FirebaseAppCheck */; };
+		BF4F254C2B3535E8004501B2 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F254B2B3535E8004501B2 /* FirebaseAppDistribution-Beta */; };
+		BF4F254E2B3535E8004501B2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F254D2B3535E8004501B2 /* FirebaseAuth */; };
+		BF4F25502B3535E8004501B2 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F254F2B3535E8004501B2 /* FirebaseAuthCombine-Community */; };
+		BF4F25522B3535E8004501B2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25512B3535E8004501B2 /* FirebaseCrashlytics */; };
+		BF4F25542B3535E8004501B2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25532B3535E8004501B2 /* FirebaseDatabase */; };
+		BF4F25562B3535E8004501B2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25552B3535E8004501B2 /* FirebaseDatabaseSwift */; };
+		BF4F25582B3535E8004501B2 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25572B3535E8004501B2 /* FirebaseDynamicLinks */; };
+		BF4F255A2B3535E8004501B2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25592B3535E8004501B2 /* FirebaseFirestore */; };
+		BF4F255C2B3535E8004501B2 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F255B2B3535E8004501B2 /* FirebaseFirestoreCombine-Community */; };
+		BF4F255E2B3535E8004501B2 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F255D2B3535E8004501B2 /* FirebaseFirestoreSwift */; };
+		BF4F25602B3535E8004501B2 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F255F2B3535E8004501B2 /* FirebaseFunctions */; };
+		BF4F25622B353606004501B2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25612B353606004501B2 /* FirebaseAnalytics */; };
+		BF4F25642B353606004501B2 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25632B353606004501B2 /* FirebaseAnalyticsOnDeviceConversion */; };
+		BF4F25662B353606004501B2 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25652B353606004501B2 /* FirebaseAnalyticsSwift */; };
+		BF4F25682B353606004501B2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25672B353606004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		BF4F256A2B353606004501B2 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25692B353606004501B2 /* FirebaseAppCheck */; };
+		BF4F256C2B353606004501B2 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F256B2B353606004501B2 /* FirebaseAppDistribution-Beta */; };
+		BF4F256E2B353606004501B2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F256D2B353606004501B2 /* FirebaseAuth */; };
+		BF4F25702B353606004501B2 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F256F2B353606004501B2 /* FirebaseAuthCombine-Community */; };
+		BF4F25722B353606004501B2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25712B353606004501B2 /* FirebaseCrashlytics */; };
+		BF4F25742B353606004501B2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25732B353606004501B2 /* FirebaseDatabase */; };
+		BF4F25762B353606004501B2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25752B353606004501B2 /* FirebaseDatabaseSwift */; };
+		BF4F25782B353606004501B2 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25772B353606004501B2 /* FirebaseDynamicLinks */; };
+		BF4F257A2B353606004501B2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F25792B353606004501B2 /* FirebaseFirestore */; };
+		BF4F257C2B353606004501B2 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F257B2B353606004501B2 /* FirebaseFirestoreCombine-Community */; };
+		BF4F257E2B353606004501B2 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F257D2B353606004501B2 /* FirebaseFirestoreSwift */; };
+		BF4F25802B353606004501B2 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = BF4F257F2B353606004501B2 /* FirebaseFunctions */; };
+		BF4F25822B46A9B5004501B2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F25812B46A9B5004501B2 /* UserManager.swift */; };
+		BF4F25842B46AA4A004501B2 /* HouseholdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F25832B46AA4A004501B2 /* HouseholdManager.swift */; };
+		BF4F25862B46AA60004501B2 /* UtilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F25852B46AA60004501B2 /* UtilityManager.swift */; };
+		BFBB908E2B06C8BB00A1804E /* HouseholdSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB908D2B06C8BB00A1804E /* HouseholdSummaryView.swift */; };
 		BFC079D52ABC2B9B009F2379 /* Household_OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079D42ABC2B9B009F2379 /* Household_OrganizerApp.swift */; };
 		BFC079D72ABC2B9B009F2379 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079D62ABC2B9B009F2379 /* ContentView.swift */; };
 		BFC079D92ABC2B9D009F2379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC079D82ABC2B9D009F2379 /* Assets.xcassets */; };
 		BFC079DC2ABC2B9D009F2379 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC079DB2ABC2B9D009F2379 /* Preview Assets.xcassets */; };
-		BFC079DE2ABC2B9D009F2379 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079DD2ABC2B9D009F2379 /* Persistence.swift */; };
-		BFC079E12ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */; };
 		BFC079F22ABC421C009F2379 /* LoginImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F12ABC421C009F2379 /* LoginImageView.swift */; };
 		BFC079F42ABC42D7009F2379 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F32ABC42D7009F2379 /* Constant.swift */; };
 		BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC079F52ABC4543009F2379 /* LoginDetailsView.swift */; };
@@ -43,8 +79,15 @@
 		BFC07A012ABD77FA009F2379 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC07A002ABD77FA009F2379 /* CreateUserView.swift */; };
 		BFC07A032ABD7E9F009F2379 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC07A022ABD7E9F009F2379 /* BlankView.swift */; };
 		BFC07A072ABEC0F0009F2379 /* SetDisplayNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC07A062ABEC0F0009F2379 /* SetDisplayNameView.swift */; };
+		BFC53E312B46BBC000174458 /* SummaryOccupantGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E302B46BBC000174458 /* SummaryOccupantGridView.swift */; };
+		BFC53E362B617DBC00174458 /* UtilitiesSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E352B617DBC00174458 /* UtilitiesSummaryView.swift */; };
+		BFC53E382B618C9900174458 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E372B618C9900174458 /* SettingsScreen.swift */; };
+		BFC53E3A2B62FC6E00174458 /* SettingsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E392B62FC6D00174458 /* SettingsScreenViewModel.swift */; };
+		BFC53E3C2B65C93E00174458 /* HouseDetailsFooterButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3B2B65C93E00174458 /* HouseDetailsFooterButtons.swift */; };
+		BFC53E3E2B662A7C00174458 /* OccupantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3D2B662A7C00174458 /* OccupantListView.swift */; };
+		BFC53E402B66378400174458 /* EditHouseholdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3F2B66378400174458 /* EditHouseholdButton.swift */; };
 		BFDE46C82AC24F0300E8FBF4 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46C72AC24F0300E8FBF4 /* Household.swift */; };
-		BFDE46CC2AC2895200E8FBF4 /* CreateNewHouseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseSheet.swift */; };
+		BFDE46CC2AC2895200E8FBF4 /* HouseDetailsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CB2AC2895200E8FBF4 /* HouseDetailsSheet.swift */; };
 		BFDE46D02AC3C28E00E8FBF4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CF2AC3C28E00E8FBF4 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,10 +96,9 @@
 		BF1181182AE1D838000D6629 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		BF11811A2AE1D9D7000D6629 /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		BF11811F2AE251C3000D6629 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
-		BF1181232AE31E6A000D6629 /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
 		BF1181252AE31E9E000D6629 /* UtilitiesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesScreen.swift; sourceTree = "<group>"; };
 		BF1181272AEB330B000D6629 /* OccupantGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupantGridView.swift; sourceTree = "<group>"; };
-		BF1181292AEB3839000D6629 /* CreateNewHouseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewHouseViewModel.swift; sourceTree = "<group>"; };
+		BF1181292AEB3839000D6629 /* HouseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsViewModel.swift; sourceTree = "<group>"; };
 		BF11812C2AEB7DF9000D6629 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BF11812E2AEB7ED6000D6629 /* HouseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsView.swift; sourceTree = "<group>"; };
 		BF1181302AEB82C7000D6629 /* SearchForUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForUserView.swift; sourceTree = "<group>"; };
@@ -65,17 +107,22 @@
 		BF1181362AEC5D94000D6629 /* UtilitiesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesScreenViewModel.swift; sourceTree = "<group>"; };
 		BF1181392AEC603E000D6629 /* CreateHouseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHouseButton.swift; sourceTree = "<group>"; };
 		BF11813B2AEC617F000D6629 /* CreateUtilityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUtilityButton.swift; sourceTree = "<group>"; };
-		BF11813E2AEC6339000D6629 /* CreateNewUtilitySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUtilitySheet.swift; sourceTree = "<group>"; };
+		BF11813E2AEC6339000D6629 /* UtilityDetailsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityDetailsSheet.swift; sourceTree = "<group>"; };
 		BF1181412AEC63DE000D6629 /* UtilityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityHeaderView.swift; sourceTree = "<group>"; };
-		BF1181432AEC642F000D6629 /* UtilityNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityNameView.swift; sourceTree = "<group>"; };
-		BF1181472AEC64D6000D6629 /* CreateNewUtilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUtilityViewModel.swift; sourceTree = "<group>"; };
+		BF1181472AEC64D6000D6629 /* UtilityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityDetailsViewModel.swift; sourceTree = "<group>"; };
+		BF3714432B17E1BC0018E7B3 /* OccupantsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupantsList.swift; sourceTree = "<group>"; };
+		BF3714452B18768B0018E7B3 /* UtilityInstructionsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityInstructionsField.swift; sourceTree = "<group>"; };
+		BF3714472B187C800018E7B3 /* CreateNewUtilityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUtilityButton.swift; sourceTree = "<group>"; };
+		BF37144D2B339D380018E7B3 /* UtilityInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityInfoView.swift; sourceTree = "<group>"; };
+		BF4F25812B46A9B5004501B2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		BF4F25832B46AA4A004501B2 /* HouseholdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdManager.swift; sourceTree = "<group>"; };
+		BF4F25852B46AA60004501B2 /* UtilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityManager.swift; sourceTree = "<group>"; };
+		BFBB908D2B06C8BB00A1804E /* HouseholdSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseholdSummaryView.swift; sourceTree = "<group>"; };
 		BFC079D12ABC2B9B009F2379 /* Household Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Household Organizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC079D42ABC2B9B009F2379 /* Household_OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Household_OrganizerApp.swift; sourceTree = "<group>"; };
 		BFC079D62ABC2B9B009F2379 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFC079D82ABC2B9D009F2379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFC079DB2ABC2B9D009F2379 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BFC079DD2ABC2B9D009F2379 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		BFC079E02ABC2B9D009F2379 /* Household_Organizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Household_Organizer.xcdatamodel; sourceTree = "<group>"; };
 		BFC079E72ABC306A009F2379 /* Household-Organizer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Household-Organizer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BFC079F12ABC421C009F2379 /* LoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImageView.swift; sourceTree = "<group>"; };
 		BFC079F32ABC42D7009F2379 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -84,8 +131,15 @@
 		BFC07A002ABD77FA009F2379 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		BFC07A022ABD7E9F009F2379 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		BFC07A062ABEC0F0009F2379 /* SetDisplayNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDisplayNameView.swift; sourceTree = "<group>"; };
+		BFC53E302B46BBC000174458 /* SummaryOccupantGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryOccupantGridView.swift; sourceTree = "<group>"; };
+		BFC53E352B617DBC00174458 /* UtilitiesSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesSummaryView.swift; sourceTree = "<group>"; };
+		BFC53E372B618C9900174458 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		BFC53E392B62FC6D00174458 /* SettingsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenViewModel.swift; sourceTree = "<group>"; };
+		BFC53E3B2B65C93E00174458 /* HouseDetailsFooterButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsFooterButtons.swift; sourceTree = "<group>"; };
+		BFC53E3D2B662A7C00174458 /* OccupantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupantListView.swift; sourceTree = "<group>"; };
+		BFC53E3F2B66378400174458 /* EditHouseholdButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHouseholdButton.swift; sourceTree = "<group>"; };
 		BFDE46C72AC24F0300E8FBF4 /* Household.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
-		BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewHouseSheet.swift; sourceTree = "<group>"; };
+		BFDE46CB2AC2895200E8FBF4 /* HouseDetailsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsSheet.swift; sourceTree = "<group>"; };
 		BFDE46CF2AC3C28E00E8FBF4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,9 +148,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4F25782B353606004501B2 /* FirebaseDynamicLinks in Frameworks */,
+				BF4F257E2B353606004501B2 /* FirebaseFirestoreSwift in Frameworks */,
+				BF4F25762B353606004501B2 /* FirebaseDatabaseSwift in Frameworks */,
+				BF4F25562B3535E8004501B2 /* FirebaseDatabaseSwift in Frameworks */,
+				BF4F25542B3535E8004501B2 /* FirebaseDatabase in Frameworks */,
+				BF4F254A2B3535E8004501B2 /* FirebaseAppCheck in Frameworks */,
+				BF4F257A2B353606004501B2 /* FirebaseFirestore in Frameworks */,
+				BF4F254E2B3535E8004501B2 /* FirebaseAuth in Frameworks */,
+				BF4F25462B3535E8004501B2 /* FirebaseAnalyticsSwift in Frameworks */,
+				BF4F255A2B3535E8004501B2 /* FirebaseFirestore in Frameworks */,
 				BFC079FB2ABCF18F009F2379 /* FirebaseAnalytics in Frameworks */,
 				BFC079FD2ABCF18F009F2379 /* FirebaseAuth in Frameworks */,
+				BF4F25442B3535E8004501B2 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				BF4F25502B3535E8004501B2 /* FirebaseAuthCombine-Community in Frameworks */,
+				BF4F25742B353606004501B2 /* FirebaseDatabase in Frameworks */,
+				BF4F25702B353606004501B2 /* FirebaseAuthCombine-Community in Frameworks */,
+				BF4F25642B353606004501B2 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				BF4F25602B3535E8004501B2 /* FirebaseFunctions in Frameworks */,
+				BF4F256C2B353606004501B2 /* FirebaseAppDistribution-Beta in Frameworks */,
+				BF4F25482B3535E8004501B2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				BF4F255C2B3535E8004501B2 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				BF4F25662B353606004501B2 /* FirebaseAnalyticsSwift in Frameworks */,
+				BF4F25802B353606004501B2 /* FirebaseFunctions in Frameworks */,
+				BF4F25722B353606004501B2 /* FirebaseCrashlytics in Frameworks */,
+				BF4F25422B3535E8004501B2 /* FirebaseAnalytics in Frameworks */,
+				BF4F256A2B353606004501B2 /* FirebaseAppCheck in Frameworks */,
+				BF4F25682B353606004501B2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				BF4F25522B3535E8004501B2 /* FirebaseCrashlytics in Frameworks */,
 				BFC079FF2ABCF18F009F2379 /* FirebaseFirestore in Frameworks */,
+				BF4F257C2B353606004501B2 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				BF4F254C2B3535E8004501B2 /* FirebaseAppDistribution-Beta in Frameworks */,
+				BF4F25582B3535E8004501B2 /* FirebaseDynamicLinks in Frameworks */,
+				BF4F256E2B353606004501B2 /* FirebaseAuth in Frameworks */,
+				BF4F25622B353606004501B2 /* FirebaseAnalytics in Frameworks */,
+				BF4F255E2B3535E8004501B2 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,11 +192,10 @@
 		BF11810F2AE1D5AD000D6629 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BF11813D2AEC6248000D6629 /* Sheets */,
-				BF1181162AE1D828000D6629 /* LoginScreen.swift */,
 				BF1181182AE1D838000D6629 /* HomeScreen.swift */,
-				BF1181232AE31E6A000D6629 /* SummaryScreen.swift */,
+				BF1181162AE1D828000D6629 /* LoginScreen.swift */,
 				BF1181252AE31E9E000D6629 /* UtilitiesScreen.swift */,
+				BFC53E372B618C9900174458 /* SettingsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -120,9 +205,10 @@
 			children = (
 				BF11811A2AE1D9D7000D6629 /* LoginScreenViewModel.swift */,
 				BF11811F2AE251C3000D6629 /* HomeScreenViewModel.swift */,
-				BF1181292AEB3839000D6629 /* CreateNewHouseViewModel.swift */,
-				BF1181472AEC64D6000D6629 /* CreateNewUtilityViewModel.swift */,
+				BF1181292AEB3839000D6629 /* HouseDetailsViewModel.swift */,
+				BF1181472AEC64D6000D6629 /* UtilityDetailsViewModel.swift */,
 				BF1181362AEC5D94000D6629 /* UtilitiesScreenViewModel.swift */,
+				BFC53E392B62FC6D00174458 /* SettingsScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -140,28 +226,34 @@
 		BF1181212AE2541C000D6629 /* HomeScreenViews */ = {
 			isa = PBXGroup;
 			children = (
+				BFBB908D2B06C8BB00A1804E /* HouseholdSummaryView.swift */,
+				BF1181392AEC603E000D6629 /* CreateHouseButton.swift */,
 				BFC07A062ABEC0F0009F2379 /* SetDisplayNameView.swift */,
 				BF1181322AEBA960000D6629 /* HouseholdMenu.swift */,
-				BF1181392AEC603E000D6629 /* CreateHouseButton.swift */,
+				BFC53E302B46BBC000174458 /* SummaryOccupantGridView.swift */,
+				BFC53E3D2B662A7C00174458 /* OccupantListView.swift */,
+				BFC53E3F2B66378400174458 /* EditHouseholdButton.swift */,
 			);
 			path = HomeScreenViews;
 			sourceTree = "<group>";
 		};
-		BF11812B2AEB3FF7000D6629 /* CreateNewHouseViews */ = {
+		BF11812B2AEB3FF7000D6629 /* HouseDetailsViews */ = {
 			isa = PBXGroup;
 			children = (
 				BF11812C2AEB7DF9000D6629 /* HeaderView.swift */,
 				BF11812E2AEB7ED6000D6629 /* HouseDetailsView.swift */,
 				BF1181272AEB330B000D6629 /* OccupantGridView.swift */,
 				BF1181302AEB82C7000D6629 /* SearchForUserView.swift */,
+				BFC53E3B2B65C93E00174458 /* HouseDetailsFooterButtons.swift */,
 			);
-			path = CreateNewHouseViews;
+			path = HouseDetailsViews;
 			sourceTree = "<group>";
 		};
 		BF1181382AEC5F09000D6629 /* UtilitiesViews */ = {
 			isa = PBXGroup;
 			children = (
 				BF11813B2AEC617F000D6629 /* CreateUtilityButton.swift */,
+				BFC53E352B617DBC00174458 /* UtilitiesSummaryView.swift */,
 			);
 			path = UtilitiesViews;
 			sourceTree = "<group>";
@@ -169,8 +261,8 @@
 		BF11813D2AEC6248000D6629 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				BFDE46CB2AC2895200E8FBF4 /* CreateNewHouseSheet.swift */,
-				BF11813E2AEC6339000D6629 /* CreateNewUtilitySheet.swift */,
+				BFDE46CB2AC2895200E8FBF4 /* HouseDetailsSheet.swift */,
+				BF11813E2AEC6339000D6629 /* UtilityDetailsSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -179,7 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				BF1181412AEC63DE000D6629 /* UtilityHeaderView.swift */,
-				BF1181432AEC642F000D6629 /* UtilityNameView.swift */,
+				BF37144D2B339D380018E7B3 /* UtilityInfoView.swift */,
+				BF3714432B17E1BC0018E7B3 /* OccupantsList.swift */,
+				BF3714452B18768B0018E7B3 /* UtilityInstructionsField.swift */,
+				BF3714472B187C800018E7B3 /* CreateNewUtilityButton.swift */,
 			);
 			path = CreateNewUtilityViews;
 			sourceTree = "<group>";
@@ -206,14 +301,14 @@
 				BFC079D42ABC2B9B009F2379 /* Household_OrganizerApp.swift */,
 				BF1181132AE1D629000D6629 /* ViewModels */,
 				BF11810F2AE1D5AD000D6629 /* Screens */,
+				BF11813D2AEC6248000D6629 /* Sheets */,
 				BFC079E82ABC3861009F2379 /* View */,
 				BFC079E92ABC386E009F2379 /* Model */,
+				BFC079EA2ABC3893009F2379 /* Utility */,
 				BFC079D82ABC2B9D009F2379 /* Assets.xcassets */,
 				BFC079E72ABC306A009F2379 /* Household-Organizer-Info.plist */,
 				BFC079F72ABCF10C009F2379 /* GoogleService-Info.plist */,
 				BFC079EC2ABC4072009F2379 /* App */,
-				BFC079EB2ABC38A0009F2379 /* Extension */,
-				BFC079EA2ABC3893009F2379 /* Utility */,
 				BFC079DA2ABC2B9D009F2379 /* Preview Content */,
 			);
 			path = "Household Organizer";
@@ -232,7 +327,7 @@
 			children = (
 				BF1181402AEC63A3000D6629 /* CreateNewUtilityViews */,
 				BF1181382AEC5F09000D6629 /* UtilitiesViews */,
-				BF11812B2AEB3FF7000D6629 /* CreateNewHouseViews */,
+				BF11812B2AEB3FF7000D6629 /* HouseDetailsViews */,
 				BF1181212AE2541C000D6629 /* HomeScreenViews */,
 				BF11811E2AE1E084000D6629 /* LoginScreenViews */,
 				BFC07A022ABD7E9F009F2379 /* BlankView.swift */,
@@ -246,8 +341,6 @@
 				BFDE46C72AC24F0300E8FBF4 /* Household.swift */,
 				BFDE46CF2AC3C28E00E8FBF4 /* User.swift */,
 				BF1181342AEC5CC9000D6629 /* Utility.swift */,
-				BFC079DD2ABC2B9D009F2379 /* Persistence.swift */,
-				BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,15 +349,11 @@
 			isa = PBXGroup;
 			children = (
 				BFC079F32ABC42D7009F2379 /* Constant.swift */,
+				BF4F25812B46A9B5004501B2 /* UserManager.swift */,
+				BF4F25832B46AA4A004501B2 /* HouseholdManager.swift */,
+				BF4F25852B46AA60004501B2 /* UtilityManager.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		BFC079EB2ABC38A0009F2379 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		BFC079EC2ABC4072009F2379 /* App */ = {
@@ -295,6 +384,38 @@
 				BFC079FA2ABCF18F009F2379 /* FirebaseAnalytics */,
 				BFC079FC2ABCF18F009F2379 /* FirebaseAuth */,
 				BFC079FE2ABCF18F009F2379 /* FirebaseFirestore */,
+				BF4F25412B3535E8004501B2 /* FirebaseAnalytics */,
+				BF4F25432B3535E8004501B2 /* FirebaseAnalyticsOnDeviceConversion */,
+				BF4F25452B3535E8004501B2 /* FirebaseAnalyticsSwift */,
+				BF4F25472B3535E8004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				BF4F25492B3535E8004501B2 /* FirebaseAppCheck */,
+				BF4F254B2B3535E8004501B2 /* FirebaseAppDistribution-Beta */,
+				BF4F254D2B3535E8004501B2 /* FirebaseAuth */,
+				BF4F254F2B3535E8004501B2 /* FirebaseAuthCombine-Community */,
+				BF4F25512B3535E8004501B2 /* FirebaseCrashlytics */,
+				BF4F25532B3535E8004501B2 /* FirebaseDatabase */,
+				BF4F25552B3535E8004501B2 /* FirebaseDatabaseSwift */,
+				BF4F25572B3535E8004501B2 /* FirebaseDynamicLinks */,
+				BF4F25592B3535E8004501B2 /* FirebaseFirestore */,
+				BF4F255B2B3535E8004501B2 /* FirebaseFirestoreCombine-Community */,
+				BF4F255D2B3535E8004501B2 /* FirebaseFirestoreSwift */,
+				BF4F255F2B3535E8004501B2 /* FirebaseFunctions */,
+				BF4F25612B353606004501B2 /* FirebaseAnalytics */,
+				BF4F25632B353606004501B2 /* FirebaseAnalyticsOnDeviceConversion */,
+				BF4F25652B353606004501B2 /* FirebaseAnalyticsSwift */,
+				BF4F25672B353606004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				BF4F25692B353606004501B2 /* FirebaseAppCheck */,
+				BF4F256B2B353606004501B2 /* FirebaseAppDistribution-Beta */,
+				BF4F256D2B353606004501B2 /* FirebaseAuth */,
+				BF4F256F2B353606004501B2 /* FirebaseAuthCombine-Community */,
+				BF4F25712B353606004501B2 /* FirebaseCrashlytics */,
+				BF4F25732B353606004501B2 /* FirebaseDatabase */,
+				BF4F25752B353606004501B2 /* FirebaseDatabaseSwift */,
+				BF4F25772B353606004501B2 /* FirebaseDynamicLinks */,
+				BF4F25792B353606004501B2 /* FirebaseFirestore */,
+				BF4F257B2B353606004501B2 /* FirebaseFirestoreCombine-Community */,
+				BF4F257D2B353606004501B2 /* FirebaseFirestoreSwift */,
+				BF4F257F2B353606004501B2 /* FirebaseFunctions */,
 			);
 			productName = "Household Organizer";
 			productReference = BFC079D12ABC2B9B009F2379 /* Household Organizer.app */;
@@ -308,7 +429,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					BFC079D02ABC2B9B009F2379 = {
 						CreatedOnToolsVersion = 14.2;
@@ -354,29 +475,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1181442AEC642F000D6629 /* UtilityNameView.swift in Sources */,
 				BFC079F22ABC421C009F2379 /* LoginImageView.swift in Sources */,
+				BFC53E402B66378400174458 /* EditHouseholdButton.swift in Sources */,
 				BF1181202AE251C3000D6629 /* HomeScreenViewModel.swift in Sources */,
+				BF4F25822B46A9B5004501B2 /* UserManager.swift in Sources */,
+				BFBB908E2B06C8BB00A1804E /* HouseholdSummaryView.swift in Sources */,
 				BFC07A012ABD77FA009F2379 /* CreateUserView.swift in Sources */,
 				BFC07A032ABD7E9F009F2379 /* BlankView.swift in Sources */,
+				BF3714442B17E1BC0018E7B3 /* OccupantsList.swift in Sources */,
 				BF11813C2AEC617F000D6629 /* CreateUtilityButton.swift in Sources */,
 				BF11812F2AEB7ED6000D6629 /* HouseDetailsView.swift in Sources */,
-				BF1181242AE31E6A000D6629 /* SummaryScreen.swift in Sources */,
 				BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */,
-				BF11812A2AEB3839000D6629 /* CreateNewHouseViewModel.swift in Sources */,
+				BF11812A2AEB3839000D6629 /* HouseDetailsViewModel.swift in Sources */,
 				BFDE46D02AC3C28E00E8FBF4 /* User.swift in Sources */,
 				BF1181332AEBA960000D6629 /* HouseholdMenu.swift in Sources */,
 				BF11813A2AEC603E000D6629 /* CreateHouseButton.swift in Sources */,
-				BF1181482AEC64D6000D6629 /* CreateNewUtilityViewModel.swift in Sources */,
-				BFC079DE2ABC2B9D009F2379 /* Persistence.swift in Sources */,
+				BF1181482AEC64D6000D6629 /* UtilityDetailsViewModel.swift in Sources */,
 				BFDE46C82AC24F0300E8FBF4 /* Household.swift in Sources */,
 				BFC079F42ABC42D7009F2379 /* Constant.swift in Sources */,
 				BFC07A072ABEC0F0009F2379 /* SetDisplayNameView.swift in Sources */,
 				BF1181422AEC63DE000D6629 /* UtilityHeaderView.swift in Sources */,
 				BF11812D2AEB7DF9000D6629 /* HeaderView.swift in Sources */,
+				BFC53E3E2B662A7C00174458 /* OccupantListView.swift in Sources */,
+				BFC53E312B46BBC000174458 /* SummaryOccupantGridView.swift in Sources */,
+				BFC53E382B618C9900174458 /* SettingsScreen.swift in Sources */,
+				BF3714482B187C800018E7B3 /* CreateNewUtilityButton.swift in Sources */,
+				BFC53E3A2B62FC6E00174458 /* SettingsScreenViewModel.swift in Sources */,
 				BFC079D72ABC2B9B009F2379 /* ContentView.swift in Sources */,
-				BFC079E12ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld in Sources */,
-				BF11813F2AEC6339000D6629 /* CreateNewUtilitySheet.swift in Sources */,
+				BFC53E362B617DBC00174458 /* UtilitiesSummaryView.swift in Sources */,
+				BF11813F2AEC6339000D6629 /* UtilityDetailsSheet.swift in Sources */,
 				BF1181372AEC5D94000D6629 /* UtilitiesScreenViewModel.swift in Sources */,
 				BF11811B2AE1D9D7000D6629 /* LoginScreenViewModel.swift in Sources */,
 				BF1181172AE1D828000D6629 /* LoginScreen.swift in Sources */,
@@ -384,9 +511,14 @@
 				BF1181352AEC5CC9000D6629 /* Utility.swift in Sources */,
 				BF1181262AE31E9E000D6629 /* UtilitiesScreen.swift in Sources */,
 				BF1181192AE1D838000D6629 /* HomeScreen.swift in Sources */,
+				BF4F25842B46AA4A004501B2 /* HouseholdManager.swift in Sources */,
+				BF37144E2B339D380018E7B3 /* UtilityInfoView.swift in Sources */,
+				BF3714462B18768B0018E7B3 /* UtilityInstructionsField.swift in Sources */,
 				BFC079D52ABC2B9B009F2379 /* Household_OrganizerApp.swift in Sources */,
 				BF1181312AEB82C7000D6629 /* SearchForUserView.swift in Sources */,
-				BFDE46CC2AC2895200E8FBF4 /* CreateNewHouseSheet.swift in Sources */,
+				BF4F25862B46AA60004501B2 /* UtilityManager.swift in Sources */,
+				BFC53E3C2B65C93E00174458 /* HouseDetailsFooterButtons.swift in Sources */,
+				BFDE46CC2AC2895200E8FBF4 /* HouseDetailsSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +562,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -491,6 +624,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -525,6 +659,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,6 +692,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,6 +744,166 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BF4F25412B3535E8004501B2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BF4F25432B3535E8004501B2 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		BF4F25452B3535E8004501B2 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		BF4F25472B3535E8004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		BF4F25492B3535E8004501B2 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		BF4F254B2B3535E8004501B2 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		BF4F254D2B3535E8004501B2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BF4F254F2B3535E8004501B2 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		BF4F25512B3535E8004501B2 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		BF4F25532B3535E8004501B2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		BF4F25552B3535E8004501B2 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		BF4F25572B3535E8004501B2 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		BF4F25592B3535E8004501B2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BF4F255B2B3535E8004501B2 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		BF4F255D2B3535E8004501B2 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		BF4F255F2B3535E8004501B2 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		BF4F25612B353606004501B2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BF4F25632B353606004501B2 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		BF4F25652B353606004501B2 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		BF4F25672B353606004501B2 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		BF4F25692B353606004501B2 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		BF4F256B2B353606004501B2 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		BF4F256D2B353606004501B2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BF4F256F2B353606004501B2 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		BF4F25712B353606004501B2 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		BF4F25732B353606004501B2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		BF4F25752B353606004501B2 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		BF4F25772B353606004501B2 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		BF4F25792B353606004501B2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BF4F257B2B353606004501B2 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		BF4F257D2B353606004501B2 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		BF4F257F2B353606004501B2 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
 		BFC079FA2ABCF18F009F2379 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BFC079F92ABCF18F009F2379 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -624,19 +920,6 @@
 			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		BFC079DF2ABC2B9D009F2379 /* Household_Organizer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BFC079E02ABC2B9D009F2379 /* Household_Organizer.xcdatamodel */,
-			);
-			currentVersion = BFC079E02ABC2B9D009F2379 /* Household_Organizer.xcdatamodel */;
-			path = Household_Organizer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BFC079C92ABC2B9B009F2379 /* Project object */;
 }

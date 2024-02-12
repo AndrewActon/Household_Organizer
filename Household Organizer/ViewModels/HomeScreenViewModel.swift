@@ -5,64 +5,56 @@
 //  Created by Andrew Acton on 10/20/23.
 //
 
-import Foundation
-import FirebaseAuth
-import FirebaseFirestore
+import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 @MainActor class HomeScreenViewModel: ObservableObject {
     // MARK: - Properties
-    @Published var user: UserModel = UserModel(id: "", name: "", email: "")
-    @Published var selectedHousehold: Household?
     @Published var households: [Household]?
+    @Published var houseState: HouseState?
     
     // MARK: - Methods
-    func updateUserName(name: String) async -> Bool {
-        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequest?.displayName = name
-        do {
-            //Update Authentication User
-            try await changeRequest?.commitChanges()
-            user.name = name
-            
-            //Update Firestore User
-            try await AppDelegate.db.collection("Users").document(user.email).updateData(["name" : name])
-            
-            return true
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
-            return false
-        }
+    
+    func setupView() async -> Household? {
+        let user = UserManager.shared.user
+        
+        guard let houses = await findUserHouseholds(user: user) else { return nil }
+        
+        self.households = houses
+        
+        return houses[0]
     }
     
     func findUserHouseholds(user: UserModel) async -> [Household]? {
-        var households: [Household] = []
-        let docRef = AppDelegate.db.collection("Households").whereField("occupants", arrayContains: user.email.lowercased())
+        let households = await HouseholdManager.shared.findHouseholdsWithUserID(userID: user.id)
+        return households
+    }
+    
+    func removeOccupantFromHousehold(userID: String, household: Household?) -> Household? {
+        guard let household = household else { return nil }
         
-        do {
-            let querySnapshot = try await docRef.getDocuments()
+        let occupants = household.occupants
+        
+        let newOccupants = occupants.filter { $0 != userID }
+        
+        let updatedHousehold = Household(id: household.id, name: household.name, occupants: newOccupants, utilities: household.utilities)
+        
+        HouseholdManager.shared.updateHousehold(household: updatedHousehold)
+        
+        return updatedHousehold
+    }
+    
+    func findOccupants(occupantIDs: [String]) async -> [UserModel]? {
+        var users: [UserModel] = []
+        
+        for occupantID in occupantIDs {
+            guard let user = await UserManager.shared.findUserByID(userID: occupantID) else { return nil }
             
-            for document in querySnapshot.documents {
-                let household = Household(
-                    id: document["id"] as? String ?? "",
-                    name: document["name"] as? String ?? "",
-                    occupants: document["occupants"] as? [String] ?? [])
-                
-                households.append(household)
-            }
-            
-            if households.isEmpty {
-                return nil
-            }
-            
-            selectedHousehold = households[0]
-            
-            return households
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) \n--\n \(error)")
-            return nil
+            users.append(user)
         }
         
-        
+        return users
     }
-
+    
 }

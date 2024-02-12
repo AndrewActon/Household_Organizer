@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct UserModel {
+struct UserModel: Identifiable, Codable {
     var id: String
     var name: String?
     var email: String
 }
+
+
