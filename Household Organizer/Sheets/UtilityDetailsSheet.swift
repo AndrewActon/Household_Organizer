@@ -12,19 +12,24 @@ struct UtilityDetailsSheet: View {
     @EnvironmentObject var loginScreenViewModel: LoginScreenViewModel
     @EnvironmentObject var utilitiesScreenViewModel: UtilitiesScreenViewModel
     @StateObject var utilityDetailsViewModel = UtilityDetailsViewModel()
+    @State var isRotated: Bool = false
     @Binding var isShowing: Bool
     let utilityState: UtilityState?
     
     var body: some View {
-            VStack {
+            ScrollView {
                 UtilityHeaderView()
                 
                 UtilityInfoView()
                 
+                UtilityDatePickerView()
+                
+                SplitEvenlyButton()
+
                 ForEach($utilityDetailsViewModel.payStatus, id: \.id) { $status in
                     OccupantsList(payStatus: status)
                 }
-                
+           
                 UtilityInstructionsField()
                 
                 CreateNewUtilityButton(isShowing: $isShowing)

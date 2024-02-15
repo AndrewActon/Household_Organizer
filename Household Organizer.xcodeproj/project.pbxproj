@@ -86,6 +86,8 @@
 		BFC53E3C2B65C93E00174458 /* HouseDetailsFooterButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3B2B65C93E00174458 /* HouseDetailsFooterButtons.swift */; };
 		BFC53E3E2B662A7C00174458 /* OccupantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3D2B662A7C00174458 /* OccupantListView.swift */; };
 		BFC53E402B66378400174458 /* EditHouseholdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E3F2B66378400174458 /* EditHouseholdButton.swift */; };
+		BFC53E422B7D9F4200174458 /* UtilityDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E412B7D9F4200174458 /* UtilityDatePickerView.swift */; };
+		BFC53E442B7DAA0F00174458 /* SplitEvenlyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC53E432B7DAA0F00174458 /* SplitEvenlyButton.swift */; };
 		BFDE46C82AC24F0300E8FBF4 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46C72AC24F0300E8FBF4 /* Household.swift */; };
 		BFDE46CC2AC2895200E8FBF4 /* HouseDetailsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CB2AC2895200E8FBF4 /* HouseDetailsSheet.swift */; };
 		BFDE46D02AC3C28E00E8FBF4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE46CF2AC3C28E00E8FBF4 /* User.swift */; };
@@ -138,6 +140,8 @@
 		BFC53E3B2B65C93E00174458 /* HouseDetailsFooterButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsFooterButtons.swift; sourceTree = "<group>"; };
 		BFC53E3D2B662A7C00174458 /* OccupantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupantListView.swift; sourceTree = "<group>"; };
 		BFC53E3F2B66378400174458 /* EditHouseholdButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHouseholdButton.swift; sourceTree = "<group>"; };
+		BFC53E412B7D9F4200174458 /* UtilityDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityDatePickerView.swift; sourceTree = "<group>"; };
+		BFC53E432B7DAA0F00174458 /* SplitEvenlyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitEvenlyButton.swift; sourceTree = "<group>"; };
 		BFDE46C72AC24F0300E8FBF4 /* Household.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
 		BFDE46CB2AC2895200E8FBF4 /* HouseDetailsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailsSheet.swift; sourceTree = "<group>"; };
 		BFDE46CF2AC3C28E00E8FBF4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				BF3714432B17E1BC0018E7B3 /* OccupantsList.swift */,
 				BF3714452B18768B0018E7B3 /* UtilityInstructionsField.swift */,
 				BF3714472B187C800018E7B3 /* CreateNewUtilityButton.swift */,
+				BFC53E412B7D9F4200174458 /* UtilityDatePickerView.swift */,
+				BFC53E432B7DAA0F00174458 /* SplitEvenlyButton.swift */,
 			);
 			path = CreateNewUtilityViews;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 				BFC07A012ABD77FA009F2379 /* CreateUserView.swift in Sources */,
 				BFC07A032ABD7E9F009F2379 /* BlankView.swift in Sources */,
 				BF3714442B17E1BC0018E7B3 /* OccupantsList.swift in Sources */,
+				BFC53E422B7D9F4200174458 /* UtilityDatePickerView.swift in Sources */,
 				BF11813C2AEC617F000D6629 /* CreateUtilityButton.swift in Sources */,
 				BF11812F2AEB7ED6000D6629 /* HouseDetailsView.swift in Sources */,
 				BFC079F62ABC4543009F2379 /* LoginDetailsView.swift in Sources */,
@@ -499,6 +506,7 @@
 				BFC53E3E2B662A7C00174458 /* OccupantListView.swift in Sources */,
 				BFC53E312B46BBC000174458 /* SummaryOccupantGridView.swift in Sources */,
 				BFC53E382B618C9900174458 /* SettingsScreen.swift in Sources */,
+				BFC53E442B7DAA0F00174458 /* SplitEvenlyButton.swift in Sources */,
 				BF3714482B187C800018E7B3 /* CreateNewUtilityButton.swift in Sources */,
 				BFC53E3A2B62FC6E00174458 /* SettingsScreenViewModel.swift in Sources */,
 				BFC079D72ABC2B9B009F2379 /* ContentView.swift in Sources */,

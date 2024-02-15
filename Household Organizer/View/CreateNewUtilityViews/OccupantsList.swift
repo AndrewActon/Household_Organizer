@@ -38,6 +38,7 @@ struct OccupantsList: View {
                     .fontWeight(.regular)
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
+                    .keyboardType(.decimalPad)
                 
                 Spacer()
             }

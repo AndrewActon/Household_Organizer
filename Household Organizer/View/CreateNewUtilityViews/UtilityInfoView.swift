@@ -35,46 +35,14 @@ struct UtilityInfoView: View {
                     .padding()
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(12)
+                    .keyboardType(.decimalPad)
                 
             }
+            .padding()
             
-            HStack {
-                Text("Due Date")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(.white)
-                    .padding()
-                
-                DatePicker("Due Date", selection: $createNewUtilityViewModel.dueDate, displayedComponents: .date)
-                    .labelsHidden()
-                    .foregroundStyle(.white)
-                    .colorInvert()
-                    .colorMultiply(.white)
-                    .padding()
-                    .frame(width: 100, height: 100)
-                    .onTapGesture {
-                        withAnimation {
-                            isRotated.toggle()
-                        }
-                    }
-                
-                Image(systemName: "chevron.down")
-                    .rotationEffect(.degrees(isRotated ? 180.00 : 0.00))
-                    .foregroundStyle(.white)
-                
-            }
-            
-            Button {
-                createNewUtilityViewModel.splitEvenly()
-            } label: {
-                Text("Split Evenly")
-                    .padding()
-            }
-            .font(.system(size: 15, weight: .bold))
-            .foregroundStyle(.white)
-            .background(myrtleGreen)
-            .clipShape(Capsule())
         }
         .padding()
     }
+    
 }
 

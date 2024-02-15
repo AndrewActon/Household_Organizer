@@ -11,7 +11,6 @@ struct UtilityInstructionsField: View {
     @EnvironmentObject var createNewUtilityViewModel: UtilityDetailsViewModel
     
     var body: some View {
-        
         VStack {
             HStack {
                 Text("Input payement instructions and other details here: ")
@@ -24,11 +23,13 @@ struct UtilityInstructionsField: View {
             .padding()
             
             TextEditor(text: $createNewUtilityViewModel.instructions)
+                .frame(minHeight: 100)
                 .font(.system(size: 16, weight: .regular))
                 .foregroundStyle(.white)
                 .scrollContentBackground(.hidden)
                 .background(Color(UIColor.secondarySystemBackground))
                 .padding(.horizontal, 12)
+            
         }
     }
 }
